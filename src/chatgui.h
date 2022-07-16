@@ -17,9 +17,9 @@ private:
     //// STUDENT CODE
     ////
 
-    ChatLogic* _chatLogic;
+    // ChatLogic* _chatLogic;
     // std::unique_ptr<ChatLogic> unique(_chatLogic);
-    // std::unique_ptr<ChatLogic> _chatLogic;  // changed
+    std::unique_ptr<ChatLogic> _chatLogic;  // changed
 
     ////
     //// EOF STUDENT CODE
@@ -30,7 +30,7 @@ public:
     ~ChatBotPanelDialog();
 
     // getter / setter
-    // ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
+
     ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
     // std::unique_ptr<ChatLogic> GetChatLogicHandle() { return _chatLogic.get(); }
 
