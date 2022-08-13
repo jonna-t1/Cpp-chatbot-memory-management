@@ -1,0 +1,43 @@
+ASSERT INFO:
+../src/common/image.cpp(429): assert "IsOk()" failed in Scale(): invalid image
+
+BACKTRACE:
+[1] wxImage::Scale(int, int, wxImageResizeQuality) const
+[2] wxEvtHandler::ProcessEventIfMatchesId(wxEventTableEntryBase const&, wxEvtHandler*, wxEvent&)
+[3] wxEventHashTable::HandleEvent(wxEvent&, wxEvtHandler*)
+[4] wxEvtHandler::TryHereOnly(wxEvent&)
+[5] wxEvtHandler::ProcessEventLocally(wxEvent&)
+[6] wxEvtHandler::ProcessEvent(wxEvent&)
+[7] wxEvtHandler::SafelyProcessEvent(wxEvent&)
+[8] wxWindow::GTKSendPaintEvents(_cairo*)
+[9] g_closure_invoke
+[10] g_signal_emit_valist
+[11] g_signal_emit
+[12] gtk_container_propagate_draw
+[13] g_closure_invoke
+[14] g_signal_emit_valist
+[15] g_signal_emit
+[16] gtk_container_propagate_draw
+[17] gtk_container_propagate_draw
+[18] gtk_main_do_event
+[19] g_signal_emit_valist
+[20] g_signal_emit
+[21] g_main_context_dispatch
+[22] g_main_loop_run
+[23] gtk_main
+[24] wxGUIEventLoop::DoRun()
+[25] wxEventLoopBase::Run()
+[26] wxDialog::ShowModal()
+[27] wxLogGui::DoShowMultipleLogMessages(wxArrayString const&, wxArrayInt const&, wxArrayLong const&, wxString const&, int)
+[28] wxLogGui::Flush()
+[29] wxAppConsoleBase::ProcessIdle()
+[30] wxAppBase::ProcessIdle()
+[31] wxApp::DoIdle()
+[32] g_main_context_dispatch
+[33] g_main_loop_run
+[34] gtk_main
+[35] wxGUIEventLoop::DoRun()
+[36] wxEventLoopBase::Run()
+[37] wxAppConsoleBase::MainLoop()
+[38] wxEntry(int&, wchar_t**)
+[39] __libc_start_main
