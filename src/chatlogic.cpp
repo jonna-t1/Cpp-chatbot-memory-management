@@ -12,10 +12,16 @@
 #include "chatlogic.h"
 
 
+// unique pointer for exclusive ownership
+
+
 ChatLogic::ChatLogic()
 {
     //// STUDENT CODE
     ////
+
+    // _chatBot(new ChatBot("../images/chatbot.png")); // create a unique pointer on the stack
+    // *unique = 2; // assign a value
 
     // create instance of chatbot
     _chatBot = new ChatBot("../images/chatbot.png");
@@ -27,6 +33,8 @@ ChatLogic::ChatLogic()
     //// EOF STUDENT CODE
 }
 
+// DESTRUCTOR NOT NECESSARY
+/*
 ChatLogic::~ChatLogic()
 {
     //// STUDENT CODE
@@ -50,6 +58,7 @@ ChatLogic::~ChatLogic()
     ////
     //// EOF STUDENT CODE
 }
+*/
 
 template <typename T>
 void ChatLogic::AddAllTokensToElement(std::string tokenID, tokenlist &tokens, T &element)
@@ -127,7 +136,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                         ////
 
                         // check if node with this ID exists already
-                        auto newNode = std::find_if(_nodes.begin(), _nodes.end(), [&id](GraphNode *node) { return node->GetID() == id; });
+                        auto newNode = std::find_if(_nodes.begin(), _nodes.end(), [&id](std::unique_ptr<GraphNode> node) { return node->GetID() == id; });
 
                         // create new element if ID does not yet exist
                         if (newNode == _nodes.end())
@@ -156,8 +165,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                         if (parentToken != tokens.end() && childToken != tokens.end())
                         {
                             // get iterator on incoming and outgoing node via ID search
-                            auto parentNode = std::find_if(_nodes.begin(), _nodes.end(), [&parentToken](GraphNode *node) { return node->GetID() == std::stoi(parentToken->second); });
-                            auto childNode = std::find_if(_nodes.begin(), _nodes.end(), [&childToken](GraphNode *node) { return node->GetID() == std::stoi(childToken->second); });
+                            auto parentNode = std::find_if(_nodes.begin(), _nodes.end(), [&parentToken](std::unique_ptr<GraphNode> node) { return node->GetID() == std::stoi(parentToken->second); });
+                            auto childNode = std::find_if(_nodes.begin(), _nodes.end(), [&childToken](std::unique_ptr<GraphNode> node) { return node->GetID() == std::stoi(childToken->second); });
 
                             // create new edge
                             GraphEdge *edge = new GraphEdge(id);
