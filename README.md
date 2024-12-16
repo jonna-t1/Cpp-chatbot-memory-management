@@ -25,7 +25,7 @@ The goal is to use knowledge to optimize the ChatBot program from a memory manag
 ## Basic Build Instructions
 
 1. Clone this repo.
-2. `sudo apt install libwxgtk3.2-dev`
+2. `sudo apt install libwxgtk3.2-dev cmake`
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./membot`.
